@@ -1,0 +1,287 @@
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --corPrincipal: #00A5CF;
+    --corSecundaria: #003542;
+    --corClara: #E5F6FA;
+    --corDestaque: #0BDB92;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    color: var(--corSecundaria);
+    background: linear-gradient(to bottom, #F5F5F5, #DBDBDB);
+}
+
+header {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.356);
+    color: var(--corSecundaria);
+}
+
+h1 img {
+    width: 30px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    max-width: 1000px;
+    min-height: 600px;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
+
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+section {
+    width: 450px;
+    height: 515px;
+}
+
+section p {
+    font-size: 1.2em;
+}
+
+section#selecao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#formas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    
+    height: 130px;
+    width: 400px;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+label.frame {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: transform .2s, filter .2s, background-color .2s;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
+}
+
+.frame svg {
+    width: 60px
+}
+
+label.frame:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.3));
+}
+
+.frame:has(input:checked) {
+    transform: translateY(-3px);
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.3));
+}
+
+span.circulo {
+    background-color: var(--corPrincipal);
+    position: absolute;
+    z-index: -1;
+
+    width: 0;
+    height: 0;
+
+    border-radius: 50%;
+
+    transition: .4s;
+}
+
+.frame:has(input:checked) .circulo {
+    width: 120px;
+    height: 120px;
+}
+
+#visuForma {
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+
+    background-color: #EEEEEE;
+}
+
+section#dados {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#formula {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    
+    height: 130px;
+    width: 400px;
+}
+
+#valores {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    height: 300px;
+    width: 400px;
+}
+
+#valores label {
+    color: rgb(167, 167, 167);
+}
+
+.input-group {
+    position: relative;
+
+    height: 40px;
+    width: 100%;
+
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0px 10px;
+
+    border-radius: 5px;
+    border: 1px solid #aaaaaa;
+    outline: none;
+
+    background-color: white;
+
+    transition: border, box-shadow, .3s ease;
+}
+
+.input-group input:focus{
+    border-color: var(--corPrincipal);
+    box-shadow: 0px 0px 10px #00a6cf2c;
+}
+
+#inputLadoB {
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(5px);
+
+    transition: all .4s ease;
+}
+
+body:has(#retangulo:checked) #inputLadoB {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+}
+
+.input-group label {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-55%);
+
+    border-radius: 20px;
+
+    background-color: white;
+
+    padding: 0px 10px;
+
+    pointer-events: none;
+
+    transition: .2s ease;
+}
+
+.input-group:has(input[type='number']:focus) label, .input-group:has(input:not(:placeholder-shown)) label {
+    top: 0px;
+    font-size: 0.8em;
+
+    color: var(--corPrincipal);
+}
+
+button {
+    margin: 20px 0px 0px 0px;
+    padding: 10px;
+    font-size: 1.3em;
+
+    border: none;
+    border-radius: 10px;
+    margin-top: auto;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.274);
+    background-color: var(--corPrincipal);
+    color: white;
+    
+    transition: trasnform, .2s;
+}
+
+button:hover {
+    background-color: var(--corDestaque);
+    color: var(--corSecundaria);
+}
+
+button:active {
+    transform: translateY(3px);
+}
+
+hr {
+    border: 1px solid #EEEEEE;
+    width: 400px;
+
+    position: absolute;
+    top: 0px;
+}
+
+section#resultado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 30px 0px;
+
+    width: 100%;
+    height: auto;
+}
