@@ -140,6 +140,39 @@ span.circulo {
     border-radius: 10px;
 
     background-color: #EEEEEE;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+}
+
+#visuForma::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: var(--corPrincipal); 
+    
+    transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1), rotate 0.6s;
+    
+    clip-path: polygon(10% 10%, 80% 10%, 80% 80%, 10% 80%);
+}
+
+#visuForma.forma-quadrado::after {
+    clip-path: polygon(20% 10%, 80% 10%, 80% 90%, 20% 90%);
+    rotate: 360deg;
+}
+
+#visuForma.forma-triangulo::after {
+    clip-path: polygon(50% 10%, 50% 10%, 85% 90%, 15% 90%);
+    rotate: 720deg;
+}
+
+#visuForma.forma-retangulo::after {
+    clip-path: polygon(5% 25%, 95% 25%, 95% 75%, 5% 75%);
+    rotate: 1080deg;
 }
 
 section#dados {
@@ -162,7 +195,7 @@ section#dados {
 }
 
 #prevFormula {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .escondido {
@@ -205,6 +238,10 @@ section#dados {
     background-color: white;
 
     transition: border, box-shadow, .3s ease;
+}
+
+.input-erro {
+    border: 1px solid red !important;
 }
 
 .input-group input:focus{
