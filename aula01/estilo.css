@@ -161,6 +161,15 @@ section#dados {
     width: 400px;
 }
 
+#prevFormula {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.escondido {
+    opacity: 0;
+    transform: translateY(-5px);
+}
+
 #valores {
     display: flex;
     flex-direction: column;
