@@ -138,6 +138,7 @@ span.circulo {
     height: 300px;
     width: 400px;
     border-radius: 10px;
+    padding: 50px;
 
     background-color: #EEEEEE;
 
@@ -148,31 +149,12 @@ span.circulo {
     position: relative;
 }
 
-#visuForma::after {
-    content: "";
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background-color: var(--corPrincipal); 
-    
-    transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1), rotate 0.6s;
-    
-    clip-path: polygon(10% 10%, 80% 10%, 80% 80%, 10% 80%);
+#visuForma img {
+    transition: transform .2s ease;
 }
 
-#visuForma.forma-quadrado::after {
-    clip-path: polygon(20% 10%, 80% 10%, 80% 90%, 20% 90%);
-    rotate: 360deg;
-}
-
-#visuForma.forma-triangulo::after {
-    clip-path: polygon(50% 10%, 50% 10%, 85% 90%, 15% 90%);
-    rotate: 720deg;
-}
-
-#visuForma.forma-retangulo::after {
-    clip-path: polygon(5% 25%, 95% 25%, 95% 75%, 5% 75%);
-    rotate: 1080deg;
+.esconder-forma {
+    transform: scale(0);
 }
 
 section#dados {

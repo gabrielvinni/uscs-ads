@@ -1,5 +1,5 @@
 
-// Calcula o perimetro
+// Valida os dados e calcula o perimetro
 document.querySelector("#botao").addEventListener("click", () =>{
 
     const formaSelecionada = document.querySelector(".forma:checked").value
@@ -49,29 +49,33 @@ document.querySelectorAll('input.forma').forEach(input => {input.addEventListene
         document.querySelector("#ladoB").classList.remove("input-erro")
 
         const prevFormula = document.querySelector("#prevFormula")
-        const visuForma = document.querySelector("#visuForma")
+        const poligono = document.querySelector("#poligono-svg")
 
         const formulas = {
-            'quadrado': 'Perímetro = lado A x 4',
-            'triangulo': 'Perímetro = lado A x 3',
-            'retangulo': 'Perímetro = 2 x (lado A + lado B)'
+            'quadrado': 'Perímetro = ladoA x 4',
+            'triangulo': 'Perímetro = ladoA x 3',
+            'retangulo': 'Perímetro = 2 x (ladoA + ladoB)'
         }
 
-        const classesAnimacao = {
-            'quadrado': 'forma-quadrado',
-            'triangulo': 'forma-triangulo',
-            'retangulo': 'forma-retangulo'
+        const imagensPoligono = {
+            'quadrado': 'imagens/quadrado.svg',
+            'triangulo': 'imagens/triangulo.svg',
+            'retangulo': 'imagens/retangulo.svg'
         }
         
         prevFormula.classList.add("escondido")
+        poligono.classList.add("esconder-forma")
         
         setTimeout(() => {
+
             prevFormula.textContent = formulas[input.value]
             prevFormula.classList.remove("escondido")
-        }, 200);
 
-        visuForma.classList.remove('forma-quadrado', 'forma-triangulo', 'forma-retangulo');
-        visuForma.classList.add(classesAnimacao[input.value])
+            poligono.src = " "
+            poligono.src = imagensPoligono[input.value]
+            poligono.classList.remove("esconder-forma")
+
+        }, 200);
         
     })    
 })
