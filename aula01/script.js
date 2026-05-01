@@ -9,7 +9,6 @@ document.querySelector("#botao").addEventListener("click", () =>{
 
     document.querySelector("#ladoA").classList.remove("input-erro")
     document.querySelector("#ladoB").classList.remove("input-erro")
-    res.textContent = ""
     let erro = false
 
     if (!ladoA || ladoA <= 0){
@@ -29,12 +28,14 @@ document.querySelector("#botao").addEventListener("click", () =>{
 
     res.style.color = "var(--corSecundaria)"
 
-    let perimetro
+    const formulasConta = {
+        'quadrado': ladoA*4,
+        'triangulo': ladoA*3,
+        'retangulo': 2*(ladoA+ladoB),
+    }
 
-    if (formaSelecionada == "quadrado"){perimetro = ladoA*4}
-    if (formaSelecionada == "triangulo"){perimetro = ladoA*3}
-    if (formaSelecionada == "retangulo"){perimetro = 2*(ladoA+ladoB)}
-
+    let perimetro = formulasConta[formaSelecionada]
+    
     document.querySelector("#ladoA").value = ""
     document.querySelector("#ladoB").value = ""
     
@@ -71,7 +72,6 @@ document.querySelectorAll('input.forma').forEach(input => {input.addEventListene
             prevFormula.textContent = formulas[input.value]
             prevFormula.classList.remove("escondido")
 
-            poligono.src = " "
             poligono.src = imagensPoligono[input.value]
             poligono.classList.remove("esconder-forma")
 
